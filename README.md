@@ -30,6 +30,17 @@ find kitti_data/ -name '*.png' | parallel 'convert -quality 92 -sampling-factor 
 python export_gt_depth.py --data_path kitti_data --split eigen
 ```
 
+## ⏳ Training & Evaluation
+
+**Evaluate our model:**
+
+You can evaluate the trained model as follows:
+```shell
+python evaluate_depth.py 
+    --data_path [KITTI_DATA_ROOT]
+    --eval_mono
+```
+
 ## Pre-trained Weights
 
 Comming Soon.
