@@ -7,4 +7,31 @@ This repository provides an official source code for:
 
 The code base is Monodepth2 (Godard et al. 2019).
 
+## ⏳ Preparation for Training and Evaluation
+
+**Please follow the several steps for training and evaluation.**
+
+
+1> Download KITTI raw dataset and unzip it.
+```shell
+wget -i splits/kitti_archives_to_download.txt -P kitti_data/
+cd kitti_data
+unzip "*.zip"
+cd ..
+```
+2> Convert the image format to png.
+```shell
+find kitti_data/ -name '*.png' | parallel 'convert -quality 92 -sampling-factor 2x2,1x1,1x1 {.}.png {.}.jpg && rm {}'
+```
+3> Download the [baseline model](https://github.com/brandleyzhou/DIFFNet) (Zhou et al. 2021) and locate them in `./checkpoints/diffnet` folder.
+
+4> Extract ground-truth labels for evaluation
+```shell
+python export_gt_depth.py --data_path kitti_data --split eigen
+```
+
+## Pre-trained Weights
+
+Comming Soon.
+
 
