@@ -30,7 +30,7 @@ find kitti_data/ -name '*.png' | parallel 'convert -quality 92 -sampling-factor 
 python export_gt_depth.py --data_path kitti_data --split eigen
 ```
 
-## ⏳ Training & Evaluation
+## ⏳ Evaluation
 
 **Evaluate our model:**
 
